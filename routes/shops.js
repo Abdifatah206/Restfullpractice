@@ -12,6 +12,8 @@ router.get('/all', function(req, res, next) {
   });
 });
 
+//select by ID
+/*
 router.get('/all/:id', function(req, res, next) {
   db.query('select from logs where ID=?',[req.params.id], (error, result, fields) => {
     if (error) {
@@ -20,8 +22,20 @@ router.get('/all/:id', function(req, res, next) {
     res.send(result);
   });
 });
+*/
 
+//select by username
 
+router.get('/all/:username', function(req, res, next) {
+  db.query('select from logs where username=?',[req.params.username], (error, result, fields) => {
+    if (error) {
+      res.status(500).send(error);
+    }
+    res.send(result);
+  });
+});
+
+// delete by ID
 /*
 router.get('/all/:id', function(req, res, next) {
   db.query('delete from logs where ID=?',[req.params.id], (error, result, fields) => {
