@@ -18,30 +18,37 @@
                   </div>
                </div>
 <center>
-
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Contact</th>
+    <th>Country</th>
+  </tr>
+    </table>
   <script>
     $(document).ready(function(){
 
         +$.getJSON("http://localhost:3000/api/v1/shops/all", (result)=>{
           $.each(result, (i, field) =>      {
-
+          
             var title = field.ID
-             +'&nbsp &nbsp &nbsp &nbsp &nbsp'
-              +'&nbsp &nbsp &nbsp &nbsp &nbsp'
-
+            + "<table ><tr><th> "
+          //  +"<th />"
+             
+           //   +"<th>"
            
                + field.email
-                 +'&nbsp &nbsp &nbsp &nbsp &nbsp'
-                  +'&nbsp &nbsp &nbsp &nbsp &nbsp'
-            
+             +"<th />"
+               
+             +"<th>"            
              + field.username
-              +'&nbsp &nbsp &nbsp &nbsp &nbsp'
-               +'&nbsp &nbsp &nbsp &nbsp &nbsp'
-           
+              +"<th />"
+            
+            +"<th>"
              + field.password
+			+"<th /><tr /><table />"
 			
-			+'&nbsp &nbsp &nbsp &nbsp &nbsp'
-         
+
                
 			
 				 +"<br /><br /> "

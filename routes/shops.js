@@ -12,10 +12,17 @@ router.get('/all', function(req, res, next) {
   });
 });
 
+router.get('/all/:id', function(req, res, next) {
+  db.query('select from logs where ID=?',[req.params.id], (error, result, fields) => {
+    if (error) {
+      res.status(500).send(error);
+    }
+    res.send(result);
+  });
+});
 
 
-
-
+/*
 router.get('/all/:id', function(req, res, next) {
   db.query('delete from logs where ID=?',[req.params.id], (error, result, fields) => {
     if (error) {
@@ -25,7 +32,7 @@ router.get('/all/:id', function(req, res, next) {
     res.send("deleted");
   });
 });
-
+*/
 //router.get('/genre/:genre', function(req, res, next) {
 //  var sqlQuery = "select * from shopping_list where Buy=?";
 //  db.query(sqlQuery, [req.params.rating], (error, result, fields) => {
